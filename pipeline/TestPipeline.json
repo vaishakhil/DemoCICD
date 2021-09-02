@@ -1,6 +1,17 @@
 {
 	"name": "TestPipeline",
 	"properties": {
+		"activities": [
+			{
+				"name": "Demo",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 5
+				}
+			}
+		],
 		"annotations": []
 	}
 }

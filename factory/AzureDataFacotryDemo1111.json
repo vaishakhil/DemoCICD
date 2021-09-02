@@ -1,0 +1,9 @@
+{
+	"name": "AzureDataFacotryDemo1111",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a3690aa4-7321-40da-a292-14f3318ac77c",
+		"tenantId": "01682a76-5c73-4fbe-a0fe-6de90d2bbb74"
+	}
+}

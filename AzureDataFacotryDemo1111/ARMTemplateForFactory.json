@@ -6,6 +6,10 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "AzureDataFacotryDemo1111"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		}
 	},
 	"variables": {
@@ -19,16 +23,302 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Demo",
+						"name": "Wait1",
 						"type": "Wait",
 						"dependsOn": [],
 						"userProperties": [],
 						"typeProperties": {
-							"waitTimeInSeconds": 5
+							"waitTimeInSeconds": 1
 						}
 					}
 				],
 				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Dummydata')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "ref_cacc_details_scala.csv",
+						"container": "demo"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "acq_details_id",
+						"type": "String"
+					},
+					{
+						"name": "cacc_num",
+						"type": "String"
+					},
+					{
+						"name": "src_start_date",
+						"type": "String"
+					},
+					{
+						"name": "src_update_ts",
+						"type": "String"
+					},
+					{
+						"name": "agm_cacc_num",
+						"type": "String"
+					},
+					{
+						"name": "def_std_agm_num",
+						"type": "String"
+					},
+					{
+						"name": "max_turnover_amt",
+						"type": "String"
+					},
+					{
+						"name": "currency_code",
+						"type": "String"
+					},
+					{
+						"name": "cacc_alias_name",
+						"type": "String"
+					},
+					{
+						"name": "cacc_name",
+						"type": "String"
+					},
+					{
+						"name": "main1_addr",
+						"type": "String"
+					},
+					{
+						"name": "main2_addr",
+						"type": "String"
+					},
+					{
+						"name": "main3_addr",
+						"type": "String"
+					},
+					{
+						"name": "main4_addr",
+						"type": "String"
+					},
+					{
+						"name": "main_zip_code",
+						"type": "String"
+					},
+					{
+						"name": "main_city_name",
+						"type": "String"
+					},
+					{
+						"name": "main_region_code",
+						"type": "String"
+					},
+					{
+						"name": "main_country_code",
+						"type": "String"
+					},
+					{
+						"name": "email_addr",
+						"type": "String"
+					},
+					{
+						"name": "fax_num",
+						"type": "String"
+					},
+					{
+						"name": "phone_num",
+						"type": "String"
+					},
+					{
+						"name": "note_1",
+						"type": "String"
+					},
+					{
+						"name": "note_2",
+						"type": "String"
+					},
+					{
+						"name": "term_op_cacc_num",
+						"type": "String"
+					},
+					{
+						"name": "ext_cust_num",
+						"type": "String"
+					},
+					{
+						"name": "cacc_business_code",
+						"type": "String"
+					},
+					{
+						"name": "parent_cacc_no",
+						"type": "String"
+					},
+					{
+						"name": "alternate_name",
+						"type": "String"
+					},
+					{
+						"name": "alternate1_addr",
+						"type": "String"
+					},
+					{
+						"name": "alternate_adr_2",
+						"type": "String"
+					},
+					{
+						"name": "alternate_adr_3",
+						"type": "String"
+					},
+					{
+						"name": "alternate_adr_4",
+						"type": "String"
+					},
+					{
+						"name": "alternate_zip_code",
+						"type": "String"
+					},
+					{
+						"name": "alternate_city_name",
+						"type": "String"
+					},
+					{
+						"name": "alt_region_code",
+						"type": "String"
+					},
+					{
+						"name": "alternate_country_code",
+						"type": "String"
+					},
+					{
+						"name": "payment_solution",
+						"type": "String"
+					},
+					{
+						"name": "url_adr",
+						"type": "String"
+					},
+					{
+						"name": "contact_name",
+						"type": "String"
+					},
+					{
+						"name": "status_code",
+						"type": "String"
+					},
+					{
+						"name": "status_txt",
+						"type": "String"
+					},
+					{
+						"name": "vat_code",
+						"type": "String"
+					},
+					{
+						"name": "cacc_lang_code",
+						"type": "String"
+					},
+					{
+						"name": "expiration_date",
+						"type": "String"
+					},
+					{
+						"name": "src_create_ts",
+						"type": "String"
+					},
+					{
+						"name": "last_statement_no",
+						"type": "String"
+					},
+					{
+						"name": "role_code",
+						"type": "String"
+					},
+					{
+						"name": "hierarchy_level_num",
+						"type": "String"
+					},
+					{
+						"name": "company_id",
+						"type": "String"
+					},
+					{
+						"name": "role_txt",
+						"type": "String"
+					},
+					{
+						"name": "int_customer_no",
+						"type": "String"
+					},
+					{
+						"name": "visa_smi_num",
+						"type": "String"
+					},
+					{
+						"name": "file_date",
+						"type": "String"
+					},
+					{
+						"name": "file_seq_num",
+						"type": "String"
+					},
+					{
+						"name": "net_settlement_flag",
+						"type": "String"
+					},
+					{
+						"name": "start_date",
+						"type": "String"
+					},
+					{
+						"name": "end_date",
+						"type": "String"
+					},
+					{
+						"name": "current_flag",
+						"type": "String"
+					},
+					{
+						"name": "latest_flag",
+						"type": "String"
+					},
+					{
+						"name": "insert_date",
+						"type": "String"
+					},
+					{
+						"name": "insert_by",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
+				}
 			},
 			"dependsOn": []
 		}

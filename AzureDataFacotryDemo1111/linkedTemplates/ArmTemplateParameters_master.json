@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "AzureDataFacotryDemo1111"
 		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
 		"containerUri": {
 			"value": ""
 		},
